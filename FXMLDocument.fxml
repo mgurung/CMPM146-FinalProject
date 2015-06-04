@@ -35,5 +35,6 @@
     <Button fx:id="printFirstRow" layoutX="30.0" layoutY="151.0" mnemonicParsing="false" onAction="#printFirstRow" text="Print First Row" />
     <Button layoutX="30.0" layoutY="255.0" mnemonicParsing="false" onAction="#NextRow" text="Next Row" />
     <Button layoutX="30.0" layoutY="302.0" mnemonicParsing="false" onAction="#PrevRow" text="Prev Row" />
+    <Button fx:id="match" layoutX="157.0" layoutY="255.0" mnemonicParsing="false" onAction="#CreateMatch" text="Create Match" />
   </children>
 </AnchorPane>

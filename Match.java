@@ -12,18 +12,25 @@ import java.util.ArrayList;
  * @author Jose
  */
 public class Match {
-    private Player player1;
-    private Player player2;
+    private Player player1 = null;
+    private Player player2 = null;
     private String MATCH_ID = "";
     private ArrayList<String> cardPlayed;
     
     
+    Match(){
+        
+    }
     
     Match(String setMatchID){
        this.MATCH_ID = setMatchID;
     }
     
     Match(String setMatchId, Player setPlayer1, Player setPlayer2){
+        this.player1 = setPlayer1;
+        this.player2 = setPlayer2;
+        this.MATCH_ID = setMatchId;
+        
         
     }
     
@@ -40,8 +47,28 @@ public class Match {
     }
     
     
-    public  Player getWinnerPlayer(){
-        if(this.player1.getPlayerMatchResult() == true){
+    public  Player getWinningPlayer(){
+        if(this.player1.getPlayerMatchResult()){
+            return this.player1;
+        }
+        return this.player2;
+    }
+    
+    public ArrayList<String> cardsUsedInMatch(){
+        return this.cardPlayed;
+    }
+    
+    public ArrayList<String> getWinningPlayersCards(){
+        return getWinningPlayer().getCardsUsed();
+    }
+    
+    public ArrayList<String> getLosingPlayersCards(){
+        return getLosingPlayer().getCardsUsed();
+    }
+    
+    
+    public Player getLosingPlayer(){
+        if(!this.player1.getPlayerMatchResult()){
             return this.player1;
         }
         return this.player2;

@@ -10,5 +10,7 @@ package magic_trainer;
  * @author Jose
  */
 public class MagicCard {
+    private String cardName = "";
+    
     
 }

@@ -30,6 +30,10 @@ public class Player {
     
     private boolean gameWon = false;
     private String matchID = "";
+    private boolean playedFirst = false;
+    Player(){
+        
+    }
     
     Player (String setName){
         this.name = setName;
@@ -73,6 +77,10 @@ public class Player {
         return this.gameWon;
     }
     
+    public void setPlayerName(String playerName){
+        this.name = playerName;
+    }
+    
     public void setCardsUsed(ArrayList<String> cards){
         this.cardsused = cards;
     }
@@ -85,6 +93,16 @@ public class Player {
         if (won == 1){
             this.gameWon = true;
         }
+    }
+    
+    public void setPlayerWentFirst(boolean wentFirst){
+        this.playedFirst = wentFirst;
+    }
+    
+    
+    
+    public boolean didPlayerGoFirst(){
+        return this.playedFirst;
     }
     
     public void setCardTypeUsed(int white, int blue, int black, int green, int red){
