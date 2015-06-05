@@ -6,6 +6,7 @@
 package magic_trainer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -16,7 +17,7 @@ public class Player {
     // player info
     private String name = "";
     private int landsplayed = 0;
-    private ArrayList<String> cardsused;
+    private ArrayList<MagicCard> cardsused =  new ArrayList<>();
     
     // card types 
     private boolean blue = false;
@@ -31,6 +32,8 @@ public class Player {
     private boolean gameWon = false;
     private String matchID = "";
     private boolean playedFirst = false;
+    
+    
     Player(){
         
     }
@@ -39,15 +42,20 @@ public class Player {
         this.name = setName;
     }
     
+    
+    // returns the player name
     public String getPlayerName(){
         return this.name;
     }
     
-    public ArrayList<String> getCardsUsed(){
+    
+    // returns a list of cards used by the player
+    public ArrayList<MagicCard> getCardsUsed(){
         return this.cardsused;
     }
     
     
+    // returns the card types used by the player
     public String getCardTypesUsed(){
         String cardtypeused = "";
         if (red){
@@ -69,38 +77,50 @@ public class Player {
         return cardtypeused;
     }
     
+    // returns the number of land cards played by the player
     public int getPlayerLandPlayed(){
         return landsplayed;
     }
     
+    
+    // returns the result of the player in the match, true if player won
+    // false if player lost 
     public boolean getPlayerMatchResult(){
         return this.gameWon;
     }
     
+    
+    // sets the player name
     public void setPlayerName(String playerName){
         this.name = playerName;
     }
     
-    public void setCardsUsed(ArrayList<String> cards){
-        this.cardsused = cards;
+    
+    // sets the cards used by the player in the match
+    public void setCardsUsed(ArrayList<MagicCard> cards){
+        this.cardsused.addAll(cards);
     }
     
+    
+    // sets the number of lands played
     public void setPlayerLandPlayed(int setlandsplayed){
         this.landsplayed = setlandsplayed;
     }
     
+    // set if player won the match based on the data
     public void setIfWon(int won){
         if (won == 1){
             this.gameWon = true;
         }
     }
     
+    // set whether if the player went first
     public void setPlayerWentFirst(boolean wentFirst){
         this.playedFirst = wentFirst;
     }
     
     
-    
+    // returns true of player went first false if not
     public boolean didPlayerGoFirst(){
         return this.playedFirst;
     }
@@ -123,9 +143,14 @@ public class Player {
         }
     }
     
+    
     public String toString(){
-        System.out.println("name: " + this.name );
-        return ("name: " + this.name);
+        String cards = "";
+        for(MagicCard card : cardsused){
+            cards =  cards + " , " + card.getCardName();
+        }
+        
+        return ("Player name: " + getPlayerName() + " cards: " + cards + "lands Played" + getPlayerLandPlayed());
     }
     
     

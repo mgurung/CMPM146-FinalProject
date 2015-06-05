@@ -58,11 +58,11 @@ public class Match {
         return this.cardPlayed;
     }
     
-    public ArrayList<String> getWinningPlayersCards(){
+    public ArrayList<MagicCard> getWinningPlayersCards(){
         return getWinningPlayer().getCardsUsed();
     }
     
-    public ArrayList<String> getLosingPlayersCards(){
+    public ArrayList<MagicCard> getLosingPlayersCards(){
         return getLosingPlayer().getCardsUsed();
     }
     
@@ -81,5 +81,11 @@ public class Match {
         return this.player1;
     }
     
+    public String getMatchID(){
+        return this.MATCH_ID;
+    }
     
+    public String toString(){
+        return ("Match ID: " + getMatchID() + " Player 1 " + getPlayer1() + " Player 2 " + getPlayer2());
+    }
 }

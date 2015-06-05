@@ -21,7 +21,7 @@ public class FXMLDocumentController implements Initializable {
     
     
     // load spread sheet
-    public SpreadSheet worksheet =  new SpreadSheet("Magic_Sample.xlsx");
+    public SpreadSheet worksheet =  new SpreadSheet("gamedata.xlsx");
     public MagicData gameData = new MagicData(worksheet);
     
     @FXML
@@ -34,11 +34,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-      
-        
-        
         worksheet.printWorkSheet();
-        
     }
     @FXML
     private void printFirstRow(ActionEvent event) {
@@ -46,18 +42,16 @@ public class FXMLDocumentController implements Initializable {
     }
     @FXML
     private void NextRow(ActionEvent event) {
-      
         worksheet.moveToNextRow();
-        
     }
     @FXML
     private void PrevRow(ActionEvent event) {
         worksheet.moveToPrevRow();
     }
     
-     @FXML
-    private void CreateMatch(ActionEvent event) {
-//        gameData.extractCards();
+    @FXML
+    private void PrintMatch(ActionEvent event) {
+        gameData.printAllMatches();
     }
     
     
